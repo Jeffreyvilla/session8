@@ -1,0 +1,28 @@
+<div class="contenedor">
+  <h1>REGISTRO</h1>
+  <div class="mb-3 valores">
+    <label for="nombre" class="form-label">Nombre:</label>
+    <input type="text" class="form-control" id="nombre" [(ngModel)]="persona.nombre">
+  </div>
+  
+  <div class="mb-3 valores">
+    <label for="edad" class="form-label">Edad:</label>
+    <input type="number" class="form-control" id="edad" [(ngModel)]="persona.edad">
+  </div>
+  <br>
+  <button type="button" class="btn btn-outline-primary" (click)="ingresar()">Enviar</button>
+  <br><br>
+  <table class="table table-bordered border-primary">
+    <tr>
+      <th>Nombre</th>
+      <th>Edad</th>
+      <th>Tipo</th>
+    </tr>
+    <tr *ngFor="let per of personas">
+      <td>{{per.nombre}}</td>
+      <td>{{per.edad}}</td>
+      <td *ngIf="per.edad >=18">Mayor de edad</td>
+      <td *ngIf="per.edad <18">Menor de edad</td>
+    </tr>
+  </table>
+</div>
